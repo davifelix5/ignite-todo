@@ -19,6 +19,11 @@ export function TaskList() {
   }
 
   function handleCreateNewTask() {
+
+    if (!Boolean(newTaskTitle)) {
+      return
+    }
+
     const newTask = {
       id: getRandomNumber(),
       title: newTaskTitle,
@@ -49,7 +54,7 @@ export function TaskList() {
     } 
 
     setTasks(previousTasks => previousTasks.filter(filterTasks))
-    
+
   }
 
   return (
