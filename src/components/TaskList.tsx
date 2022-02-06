@@ -14,8 +14,19 @@ export function TaskList() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
+  function getRandomNumber(min = 0, max = 1000) {
+    return Math.floor(Math.random() * max) + min
+  }
+
   function handleCreateNewTask() {
-    // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
+    const newTask = {
+      id: getRandomNumber(),
+      title: newTaskTitle,
+      isComplete: false
+    }
+
+    setTasks(previousTasks => [...previousTasks, newTask])
+
   }
 
   function handleToggleTaskCompletion(id: number) {
@@ -66,7 +77,6 @@ export function TaskList() {
               </button>
             </li>
           ))}
-          
         </ul>
       </main>
     </section>
