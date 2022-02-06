@@ -31,6 +31,7 @@ export function TaskList() {
     }
 
     setTasks(previousTasks => [...previousTasks, newTask])
+    setNewTaskTitle('')
 
   }
 
@@ -48,7 +49,7 @@ export function TaskList() {
   }
 
   function handleRemoveTask(id: number) {
-    
+
     function filterTasks(task: Task) {
       return task.id !== id
     } 
